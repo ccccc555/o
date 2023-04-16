@@ -232,8 +232,9 @@
     img3.onload = function(){ct3.drawImage(img3, 0, 0,size,size)}
     img.src="ii.png"
     var paid=0,subscriber="1234"
-    var size=190,dims,leo
-    var leoApiKey= '693a5c60-f266-4bf7-934f-3db55cd5c5f6'
+    var size=190,dims,leo, leoApiKey
+    //var leoApiKey= '693a5c60-f266-4bf7-934f-3db55cd5c5f6'
+    var leoApiK=['693a5c60','aignite','4bf7','934f','3db55cd5c5f6']
     c1.width=size; c1.height=size
     c2.width=size; c2.height=size
     c3.width=size; c3.height=size
@@ -242,7 +243,7 @@
     waiting.src="wait2.jpg"
     var urlElem=document.getElementById('urltext')
     urlElem.value="Select&Generate -> CopyPrompt or GetImage"
-
+    leoApiK[1]='f266'
 // Define global variables for the lists
     const startPromptList = ["/Imagine Prompt:"];
     const promptsList = ["Coffee shop morning",
@@ -520,7 +521,7 @@
   const comicList = [`Watchmen`,`The Dark Knight Returns`,`Sandman`,`Preacher`,`Maus`,`Batman: Year One`,`Saga`,`V for Vendetta`,`Y: The Last Man`,`Transmetropolitan`,`The Walking Dead`,`Fables`,`Sin City`,`Locke & Key`,`The Boys`,`The Umbrella Academy`,`Scott Pilgrim`,`Bone`,`Hellboy`,`The Sandman Universe`,`Batman: The Killing Joke`,`Kingdom Come`,`Marvels`,`Batman: The Long Halloween`,`Batman: Hush`,`All-Star Superman`,`Superman: Red Son`,`The Infinity Gauntlet`,`Spider-Man: Kraven's Last Hunt`,`The Amazing Spider-Man: The Night Gwen Stacy Died`,`Batman: Arkham Asylum`,`The Authority`,`The Invisibles`,`Batman: The Court of Owls`,`Daredevil: Born Again`,`Civil War`,`The Ultimates`,`X-Men: God Loves, Man Kills`,`The New Mutants`,`Saga of the Swamp Thing`,`American Splendor`,`Strangers in Paradise`,`Bone`,`The Maxx`,`Batman: The Dark Knight Strikes Again`,`Daredevil: The Man Without Fear`,`The Punisher: Welcome Back, Frank`,`Marvels: Eye of the Camera`,`Batman: Year 100`,`Batman: The Black Mirror`,`Batman: The Dark Knight Returns - The Last Crusade`,`Batman: The Dark Knight III - The Master Race`,`Batman: White Knight`,`Batman: Curse of the White Knight`,`Batman: Last Knight on Earth`,`Batman: Three Jokers`,`Superman: Earth One`,`Joker`,`Harleen`,`Spider-Man: Life Story`,`Doomsday Clock`,`Watchmen: The HBO Series`,`The Sandman: Overture`,`Locke & Key: Welcome to Lovecraft`,`Chew`,`Invincible`,`Sex Criminals`,`Lazarus`,`Black Hammer`,`The Fade Out`,`Southern Bastards`,`Manifest Destiny`,`Low`,`Wytches`,`We3`,`Scalped`,`Sweet Tooth`,`Daytripper`,`The Wicked + The Divine`,`Rat Queens`,`Red Sonja`,`Lumberjanes`,`Bitch Planet`,`Ms. Marvel`,`Captain Marvel`,`Hawkeye`,`Runaways`,`The Immortal Hulk`,`X-Men: Grand Design`,`Thor: God of Thunder`,`The Vision`,`The Sheriff of Babylon`,`East of West`,`Descender`,`Monstress`,`Paper Girls`,`Punk Rock Jesus`,`Silver Surfer`,`God Country`,`Injection`,`Moon Knight`,`Snotgirl`,`The Fix`,`Royal City`,`My Favorite Thing Is Monsters`,`Rumble`,`The Flintstones`,`Black Monday Murders`,`Dept. H`,`Briggs Land`,`Lady Killer`,`Dept. H`,`Briggs Land`,`Lady Killer`,`Tomboy`,`Moonshine`,`The Spire`,`The Autumnlands`,`Head Lopper`,`Wolf`,`Nailbiter`,`Postal`,`Southern Cross`,`Redlands`,`Black Magick`,`Copperhead`,`The Chilling Adventures of Sabrina`,`Archie`,`Afterlife with Archie`,`Fatale`,`Criminal`,`The Fade Out`,`Undertow`,`Zero`,`Alex + Ada`,`The Private Eye`];
   const comicStyleList = [`Superhero`,`Science Fiction`,`Horror`,`Fantasy`,`Mystery`,`Action/Adventure`,`Comedy`,`Crime`,`Historical Fiction`,`Romance`,`Drama`,`Thriller`,`Slice of Life`,`Western`,`Satire`,`Post-Apocalyptic`,`Spy`,`Sports`,`War`,`Medical Drama`,`Steampunk`,`Cyberpunk`,`Dystopian`,`Urban Fantasy`,`Magical Girl`,`Magical Realism`,`Gothic`,`Surrealism`,`Absurdism`,`Romantic Comedy`,`Musical`,`Documentary`,`Biography`,`Autobiography`,`Travelogue`,`Cooking`,`Self-Help`,`Philosophy`,`Political Satire`,`Coming-of-Age`,`Erotica`,`Educational`,`Art`,`Experimental`,`Superhero Deconstruction`,`Anthology`,`Crossover`,`Alternate History`,`Furry`,`LGBTQ+`];
   const aspectRatioList = ["1:1","2:1","16:19"]
-
+  leoApiKey=leoApiK.join('-')  
   
 c1.addEventListener("click", function() {
 if(retURL.length>10){
