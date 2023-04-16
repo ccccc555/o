@@ -233,7 +233,6 @@
     img.src="ii.png"
     var paid=0,subscriber="1234"
     var size=190,dims,leo, leoApiKey
-    //var leoApiKey= '693a5c60-f266-4bf7-934f-3db55cd5c5f6'
     var leoApiK=['693a5c60','aignite','4bf7','934f','3db55cd5c5f6']
     c1.width=size; c1.height=size
     c2.width=size; c2.height=size
@@ -244,7 +243,7 @@
     var urlElem=document.getElementById('urltext')
     urlElem.value="Select&Generate -> CopyPrompt or GetImage"
     leoApiK[1]='f266'
-// Define global variables for the lists
+
     const startPromptList = ["/Imagine Prompt:"];
     const promptsList = ["Coffee shop morning",
 "Beach sunset landscape","Mountains and fog",
@@ -615,11 +614,11 @@ function generatePrompt() {
   });
 
   urlButton.addEventListener("click", function() {
-    if(paid!=subscriber){paid=prompt("Enter Subscriber's code")}
-  if(paid==subscriber){
+//  if(paid!=subscriber){paid=prompt("Enter Subscriber's code")}
+//  if(paid==subscriber){
      if(document.getElementById("api").value=="DALL-E"){dalle()}
      else{leonardo()}
-    } 
+//    } 
   });
 function clearWins(){
 ct1.clearRect(0,0,size,size)
