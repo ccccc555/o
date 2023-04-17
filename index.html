@@ -218,6 +218,7 @@
     var promp="",retURL="",retURL2="",retURL3=""
     var c1 = document.getElementById("Canvas1")
     var ct1 = c1.getContext("2d")
+    ct1.fillStyle="orange"
     var c2 = document.getElementById("Canvas2")
     var ct2 = c2.getContext("2d")
     var c3 = document.getElementById("Canvas3")
@@ -617,8 +618,7 @@ function generatePrompt() {
   urlButton.addEventListener("click", function() {
 //  if(paid!=subscriber){paid=prompt("Enter Subscriber's code")}
 //  if(paid==subscriber){
-     if(document.getElementById("api").value=="DALL-E"){dalle()}
-     else{leonardo()}
+     leonardo()
 //    } 
   });
 function clearWins(){
@@ -629,44 +629,6 @@ retURL=""
 retURL2=""
 retURL3=""
 urlElem.value="Processing..."
-}
-
-function dalle(){
- const apiKey = 'keyGoesHere';
- const numImages = 2;
- promp= promptDiv.innerHTML
- clearWins()
- 
- ct1.drawImage(waiting, 0,0,100,100,0,0,70,70);
- if(document.getElementById("qual").value==".5"){dims="256"}
- if(document.getElementById("qual").value=="1"){dims="512"}
- if(document.getElementById("qual").value=="2"){dims="1024"}
- fetch('https://api.openai.com/v1/images/generations', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-    'Authorization': `Bearer ${apiKey}`
-  },
-  body: JSON.stringify({
-  // WRONGPLACE- prompt: promp, modelId:"b820ea11-02bf-4652-97ae-9ac0cc00593d", width: dims, height: dims, scheduler: "LEONARDO", num_inference_steps: 30, sd_version: 'v2'})
-  'model': 'image-alpha-001',
-    'prompt': promp,
-    'size': dims+"x"+dims,
-    'num_images': numImages
-  })
-})
-.then(response => response.json())
-.then(data => {
-  retURL=data.data[0].url
-  img.src =retURL
-  retURL2=data.data[1].url
-  img2.src =retURL2
-  retURL3=data.data.url
-  urlElem.value="Click to Enlarge"
- /* img3.src =retURL3
-  urlElem.value=retURL */
-})
-.catch(error => console.error(error));
 }
 
 function leonardo(){
@@ -701,7 +663,7 @@ fetch('https://cloud.leonardo.ai/api/rest/v1/generations', option1)
 
 function leoTimer(){
   if (leo==""){
-    if(leoTime<12){ct1.fillText(leoTime,10,100); leoTime++;setTimeOut(leoTimer,1000);return}
+    if(leoTime<12){ct1.clearRect(10,80,70,30);ct1.fillText(leoTime,10,95); leoTime++;setTimeOut(leoTimer,1000);return}
     else{ct1.fillText("?API?"); leoTime=0;return}
   }
   leoTime=0
@@ -717,7 +679,7 @@ function secondAPI(){
     authorization: `Bearer ${leoApiKey}`
   }
 };
-alert("Fetch 3 from Leonardo series")
+
    fetch('https://cloud.leonardo.ai/api/rest/v1/generations/'+leo, option2)
   .then(response => response.json())
   .then(data => {
