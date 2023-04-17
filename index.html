@@ -662,7 +662,7 @@ fetch('https://cloud.leonardo.ai/api/rest/v1/generations', option1)
 }
 
 function leoTimer(){
-  if(leoTime<9){ct1.fillRect(.7*size,0,.1*size*leoTime,.2*size); leoTime++;setTimeout(leoTimer,1000);return}
+  if(leoTime<9){ct1.fillRect(0,.7*size,.1*leoTime*size,.2*size); leoTime++;setTimeout(leoTimer,1000);return}
   leoTime=0
   alert("Fetch 3 from Leonardo API")
   secondAPI()
