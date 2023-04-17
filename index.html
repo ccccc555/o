@@ -225,6 +225,7 @@
     var img =new Image()
     var img2 =new Image()
     var img3 =new Image()
+    var leoTime=0
    
     
     img.onload = function(){ct1.drawImage(img, 0, 0,size,size)}
@@ -669,6 +670,8 @@ function dalle(){
 }
 
 function leonardo(){
+ if (leoTime!=0){return}
+ leoTime++
  promp= promptDiv.innerHTML
  clearWins()
  
@@ -687,13 +690,22 @@ function leonardo(){
   modelId:"b820ea11-02bf-4652-97ae-9ac0cc00593d", width: dims, height: dims,
   scheduler: "LEONARDO", num_inference_steps: 30, sd_version: 'v2'})
 };
-
+leo=""
 fetch('https://cloud.leonardo.ai/api/rest/v1/generations', option1)
   .then(response => response.json())
   .then(data => {leo=data.sdGenerationJob.generationId
                 urlElem.value="SeriesID "+leo
-                setTimeout(secondAPI,6500)})
+                leoTimer()})
   .catch(err => console.error(err));
+}
+
+function leoTimer(){
+  if (leo==""){
+    if(leoTime<12){ct1.fillText(leoTime,10,100); leoTime++;setTimeOut(leoTimer,1000);return}
+    else{ct1.fillText("?API?"); leoTime=0;return}
+  }
+  leoTime=0
+  secondAPI()
 }
 
 function secondAPI(){
