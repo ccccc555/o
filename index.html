@@ -218,7 +218,6 @@
     var promp="",retURL="",retURL2="",retURL3=""
     var c1 = document.getElementById("Canvas1")
     var ct1 = c1.getContext("2d")
-    ct1.fillStyle="yellow"
     var c2 = document.getElementById("Canvas2")
     var ct2 = c2.getContext("2d")
     var c3 = document.getElementById("Canvas3")
@@ -239,7 +238,7 @@
     c1.width=size; c1.height=size
     c2.width=size; c2.height=size
     c3.width=size; c3.height=size
-   
+    ct1.fillStyle="yellow"
     var waiting=new Image()
     waiting.src="wait2.jpg"
     var urlElem=document.getElementById('urltext')
