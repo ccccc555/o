@@ -218,7 +218,7 @@
     var promp="",retURL="",retURL2="",retURL3=""
     var c1 = document.getElementById("Canvas1")
     var ct1 = c1.getContext("2d")
-    ct1.fillStyle="orange"
+    ct1.fillStyle="yellow"
     var c2 = document.getElementById("Canvas2")
     var ct2 = c2.getContext("2d")
     var c3 = document.getElementById("Canvas3")
@@ -662,7 +662,7 @@ fetch('https://cloud.leonardo.ai/api/rest/v1/generations', option1)
 }
 
 function leoTimer(){
-  if(leoTime<9){ct1.clearRect(10,80,70,30);ct1.fillText(leoTime,10,95); leoTime++;setTimeout(leoTimer,1000);return}
+  if(leoTime<9){ct1.fillRect(.7*size,0,.1*size*leoTime,.2*size); leoTime++;setTimeout(leoTimer,1000);return}
   leoTime=0
   alert("Fetch 3 from Leonardo API")
   secondAPI()
