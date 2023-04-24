@@ -612,7 +612,7 @@ function leovTimer(){
   //secondAPI()
 }
 
-/*    
+   
 function leoCount(){
   const option3 = {
     method: 'GET',
@@ -621,8 +621,8 @@ function leoCount(){
 
   fetch('https://cloud.leonardo.ai/api/rest/v1/me', option3)
     .then(response => response.json())
-    .then(response => {leoCredits=response.user_details[0].subscriptionTokens; setTimeout(logCredits,3000)} )
-    .catch(err => console.error(err));
+    .then(response => {leoCredits=response.user_details.subscriptionTokens; setTimeout(logCredits,3000)} )
+    .catch(err => urlElem.value="API error="+err);
 }
 
 function logCredits(){
@@ -630,7 +630,7 @@ function logCredits(){
 }
     
 leoCount()
-*/
+
 
 function clearWins(){
 ct1.clearRect(0,0,size,size)
