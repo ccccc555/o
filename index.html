@@ -78,11 +78,15 @@
     </style>
   </head>
   <body>
+    <canvas id="vCanvas1" width="50" height="20" style="border:2px solid #d3d3d3;"></canvas>
+    <canvas id="vCanvas2" width="100" height="20"></canvas>
+    <canvas id="vCanvas3" width="100" height="20"></canvas>
+    <canvas id="vCanvas4" width="100" height="20"></canvas>
+    <br>
     <canvas id="Canvas1" width="50" height="50" style="border:2px solid #d3d3d3;"></canvas>
     <canvas id="Canvas2" width="100" height="100"></canvas>
     <canvas id="Canvas3" width="100" height="100"></canvas>
     <canvas id="Canvas4" width="100" height="100"></canvas>
-  
     <br>
  
     <textarea name="text" id="urltext" cols="70" rows="1"></textarea>
@@ -228,6 +232,14 @@
     var ct3 = c3.getContext("2d")
     var c4 = document.getElementById("Canvas4")
     var ct4 = c4.getContext("2d")
+    var vc1 = document.getElementById("vCanvas1")
+    var vct1 = vc1.getContext("2d")
+    var vc2 = document.getElementById("vCanvas2")
+    var vct2 = vc2.getContext("2d")
+    var vc3 = document.getElementById("vCanvas3")
+    var vct3 = vc3.getContext("2d")
+    var vc4 = document.getElementById("vCanvas4")
+    var vct4 = vc4.getContext("2d")
     var img =new Image()
     var img2 =new Image()
     var img3 =new Image()
@@ -247,6 +259,21 @@
     c2.width=size; c2.height=size
     c3.width=size; c3.height=size
     c4.width=size; c4.height=size
+    vc1.width=size; vc1.height=30
+    vc2.width=size; vc2.height=30
+    vc3.width=size; vc3.height=30
+    vc4.width=size; vc4.height=30
+    vct1.fillStyle="yellow"
+    vct1.fillText("Vary",0,20)
+    vct2.fillStyle="yellow"
+    vct2.fillText("Vary",0,20)
+    vct3.fillStyle="yellow"
+    vct3.fillText("Vary",0,20)
+    vct4.fillStyle="yellow"
+    vct4.fillText("Vary",0,20)
+    
+    
+    
     ct1.fillStyle="yellow"
     var waiting=new Image()
     waiting.src="wait2.jpg"
