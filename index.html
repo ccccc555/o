@@ -547,7 +547,7 @@ function leoCount(){
 
   fetch('https://cloud.leonardo.ai/api/rest/v1/me', option3)
     .then(response => response.json())
-    .then(response => {leoCredits=response[0][2];setTimeout(logCredits,2000)} )
+    .then(response => {leoCredits=JSON.stringify(response[0]);setTimeout(logCredits,2000)} )
     .catch(err => console.error(err));
 }
 
