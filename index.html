@@ -81,6 +81,7 @@
     <canvas id="Canvas1" width="50" height="50" style="border:2px solid #d3d3d3;"></canvas>
     <canvas id="Canvas2" width="100" height="100"></canvas>
     <canvas id="Canvas3" width="100" height="100"></canvas>
+    <canvas id="Canvas4" width="100" height="100"></canvas>
   
     <br>
  
@@ -217,22 +218,26 @@
     generateButton.style.font = "4vw Montserrat"
     copyButton.style.font = "4vw Montserrat"
     urlButton.style.font = "4vw Montserrat"
-    var promp="",retURL="",retURL2="",retURL3=""
+    var promp="",retURL="",retURL2="",retURL3="",retURL4=""
     var c1 = document.getElementById("Canvas1")
     var ct1 = c1.getContext("2d")
     var c2 = document.getElementById("Canvas2")
     var ct2 = c2.getContext("2d")
     var c3 = document.getElementById("Canvas3")
     var ct3 = c3.getContext("2d")
+    var c4 = document.getElementById("Canvas4")
+    var ct4 = c4.getContext("2d")
     var img =new Image()
     var img2 =new Image()
     var img3 =new Image()
+    var img4 =new Image()
     var leoTime=0,leoWait=9, leoCredits
    
     
     img.onload = function(){ct1.drawImage(img, 0, 0,size,size)}
     img2.onload = function(){ct2.drawImage(img2, 0, 0,size,size)}
     img3.onload = function(){ct3.drawImage(img3, 0, 0,size,size)}
+    img4.onload = function(){ct4.drawImage(img3, 0, 0,size,size)}
     img.src="ii.png"
     var paid=0,subscriber="1234"
     var size=190,dims,leo, leoApiKey
@@ -240,6 +245,7 @@
     c1.width=size; c1.height=size
     c2.width=size; c2.height=size
     c3.width=size; c3.height=size
+    c4.width=size; c4.height=size
     ct1.fillStyle="yellow"
     var waiting=new Image()
     waiting.src="wait2.jpg"
@@ -537,7 +543,10 @@ c3.addEventListener("click", function() {
 if(retURL3.length>10){
   win = window.open(retURL3, '_blank');   win.focus(); }
 })
-
+c4.addEventListener("click", function() {
+if(retURL4.length>10){
+  win = window.open(retURL4, '_blank');   win.focus(); }
+})
     
 function leoCount(){
   const option3 = {
@@ -643,9 +652,11 @@ function clearWins(){
 ct1.clearRect(0,0,size,size)
 ct2.clearRect(0,0,size,size)
 ct3.clearRect(0,0,size,size)
+ct4.clearRect(0,0,size,size)
 retURL=""
 retURL2=""
 retURL3=""
+retURL4=""
 urlElem.value="Processing..."
 }
 
@@ -705,6 +716,8 @@ function secondAPI(){
     img2.src =retURL2
     retURL3=data.generations_by_pk.generated_images[2].url
     img3.src =retURL3
+    retURL4=data.generations_by_pk.generated_images[3].url
+    img4.src =retURL4
     urlElem.value="Click to Enlarge"
  })
   .catch(err => console.error(err));
