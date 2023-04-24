@@ -599,8 +599,8 @@ function leoVary(leovId){
 
 fetch('https://cloud.leonardo.ai/api/rest/v1/variations/upscale'+leovId, option4)
   .then(response => response.json())
-  .then(data => {leo=data.sdUpscaleJob.id
-                urlElem.value="Upscaling "+leo
+  .then(data => {//leo=data.sdUpscaleJob.id
+                urlElem.value="Upscaling " //+leo
                 leovTimer()})
   .catch(err => console.error(err));
 }
@@ -608,7 +608,7 @@ fetch('https://cloud.leonardo.ai/api/rest/v1/variations/upscale'+leovId, option4
 function leovTimer(){
   if(leoTime<leoWait){ct1.fillRect(0,.7*size,.05*leoTime*size,.2*size); leoTime++;setTimeout(leoTimer,1000);return}
   leoTime=0
-  alert("UpScaling Premium feature")
+  urlElem.value="UpScaling Premium feature"
   //secondAPI()
 }
 
