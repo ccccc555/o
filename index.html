@@ -585,7 +585,7 @@ if(retURL4.length>10){
 })
     
 function leoVary(leovId){
-  leoWait=9
+  leoWait=4
   const option4 = {
   method: 'POST',
   headers: {
@@ -609,7 +609,7 @@ function leovTimer(){
   if(leoTime<leoWait){ct1.fillRect(0,.7*size,.05*leoTime*size,.2*size); leoTime++;setTimeout(leovTimer,1000);return}
   leoTime=0
   urlElem.value="UpScaling Premium feature"
-  secondAPI()
+ // secondAPI()
 }
 
    
