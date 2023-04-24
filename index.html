@@ -606,7 +606,7 @@ fetch('https://cloud.leonardo.ai/api/rest/v1/variations/upscale'+leovId, option4
 }
 
 function leovTimer(){
-  if(leoTime<leoWait){ct1.fillRect(0,.7*size,.05*leoTime*size,.2*size); leoTime++;setTimeout(leoTimer,1000);return}
+  if(leoTime<leoWait){ct1.fillRect(0,.7*size,.05*leoTime*size,.2*size); leoTime++;setTimeout(leovTimer,1000);return}
   leoTime=0
   urlElem.value="UpScaling Premium feature"
   //secondAPI()
