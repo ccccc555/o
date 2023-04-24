@@ -227,7 +227,7 @@
     var img =new Image()
     var img2 =new Image()
     var img3 =new Image()
-    var leoTime=0
+    var leoTime=0,leoWait=9
    
     
     img.onload = function(){ct1.drawImage(img, 0, 0,size,size)}
@@ -639,9 +639,9 @@ function leonardo(){
  clearWins()
  
  ct1.drawImage(waiting, 0,0,100,100,0,0,70,70);
- if(document.getElementById("qual").value==".5"){dims=512}
- if(document.getElementById("qual").value=="1"){dims=768}
- if(document.getElementById("qual").value=="2"){dims=1024}
+ if(document.getElementById("qual").value==".5"){leoWait=9, dims=512}
+ if(document.getElementById("qual").value=="1" ){leoWait=13, dims=768}
+ if(document.getElementById("qual").value=="2" ){leoWait=20, dims=1024}
  const option1 = {
   method: 'POST',
   headers: {
@@ -663,7 +663,7 @@ fetch('https://cloud.leonardo.ai/api/rest/v1/generations', option1)
 }
 
 function leoTimer(){
-  if(leoTime<9){ct1.fillRect(0,.7*size,.1*leoTime*size,.2*size); leoTime++;setTimeout(leoTimer,1000);return}
+  if(leoTime<leoWait){ct1.fillRect(0,.7*size,.05*leoTime*size,.2*size); leoTime++;setTimeout(leoTimer,1000);return}
   leoTime=0
   alert("Fetch 3 from Leonardo API")
   secondAPI()
