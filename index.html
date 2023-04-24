@@ -79,9 +79,9 @@
   </head>
   <body>
     <canvas id="vCanvas1" width="50" height="20" style="border:2px solid #d3d3d3;"></canvas>
-    <canvas id="vCanvas2" width="100" height="20"></canvas>
-    <canvas id="vCanvas3" width="100" height="20"></canvas>
-    <canvas id="vCanvas4" width="100" height="20"></canvas>
+    <canvas id="vCanvas2" width="100" height="20" style="border:2px solid #d3d3d3;></canvas>
+    <canvas id="vCanvas3" width="100" height="20" style="border:2px solid #d3d3d3;></canvas>
+    <canvas id="vCanvas4" width="100" height="20" style="border:2px solid #d3d3d3;></canvas>
     <br>
     <canvas id="Canvas1" width="50" height="50" style="border:2px solid #d3d3d3;"></canvas>
     <canvas id="Canvas2" width="100" height="100"></canvas>
@@ -264,13 +264,13 @@
     vc3.width=size; vc3.height=30
     vc4.width=size; vc4.height=30
     vct1.fillStyle="yellow"
-    vct1.fillText("Vary",0,20)
+    vct1.fillText("UpScale",20,20)
     vct2.fillStyle="yellow"
-    vct2.fillText("Vary",0,20)
+    vct2.fillText("UpScale",20,20)
     vct3.fillStyle="yellow"
-    vct3.fillText("Vary",0,20)
+    vct3.fillText("UpScale",20,20)
     vct4.fillStyle="yellow"
-    vct4.fillText("Vary",0,20)
+    vct4.fillText("UpScale",20,20)
     
     
     
@@ -563,6 +563,10 @@ c1.addEventListener("click", function() {
 if(retURL.length>10){
   win = window.open(retURL, '_blank');   win.focus(); }
 })
+c1.addEventListener("click", function() {
+      if(retURL.length>10){leoVary(retID1)}
+})
+      
 c2.addEventListener("click", function() {
 if(retURL2.length>10){
   win = window.open(retURL2, '_blank');   win.focus(); }
@@ -576,6 +580,20 @@ if(retURL4.length>10){
   win = window.open(retURL4, '_blank');   win.focus(); }
 })
     
+function leoVary(leoId){
+  const option4 = {method: 'GET',
+    headers: {accept: 'application/json',authorization: `Bearer ${leoApiKey}`}
+  };
+
+fetch('https://cloud.leonardo.ai/api/rest/v1/variations/'+leoId, option4)
+  .then(response => response.json())
+  .then(response => {
+      leo=data.sdGenerationJob.sdUpscaleJob
+                urlElem.value="SeriesID "+leo
+                leoTimer()})
+  .catch(err => console.error(err));
+}
+      
 function leoCount(){
   const option3 = {
     method: 'GET',
