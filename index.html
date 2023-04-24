@@ -219,6 +219,7 @@
     copyButton.style.font = "4vw Montserrat"
     urlButton.style.font = "4vw Montserrat"
     var promp="",retURL="",retURL2="",retURL3="",retURL4=""
+    var retId1="",retId2="",retId3="",retId4=""
     var c1 = document.getElementById("Canvas1")
     var ct1 = c1.getContext("2d")
     var c2 = document.getElementById("Canvas2")
@@ -711,13 +712,18 @@ function secondAPI(){
   .then(response => response.json())
   .then(data => {
     retURL=data.generations_by_pk.generated_images[0].url
+    retId1=data.generations_by_pk.generated_images[0].id
     img.src =retURL
     retURL2=data.generations_by_pk.generated_images[1].url
+    retid2=data.generations_by_pk.generated_images[1].id
     img2.src =retURL2
     retURL3=data.generations_by_pk.generated_images[2].url
+    retId3=data.generations_by_pk.generated_images[2].id 
     img3.src =retURL3
     retURL4=data.generations_by_pk.generated_images[3].url
+    retId4=data.generations_by_pk.generated_images[3].id
     img4.src =retURL4
+     
     urlElem.value="Click to Enlarge"
  })
   .catch(err => console.error(err));
