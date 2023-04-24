@@ -597,7 +597,7 @@ function leoVary(leovId){
 };
  
 
-fetch('https://cloud.leonardo.ai/api/rest/v1/variations/upscale/'+leovId, option4)
+fetch('https://cloud.leonardo.ai/api/rest/v1/variations/upscale', option4)
   .then(response => response.json())
   .then(data => {leo=data.sdUpscaleJob.id
                 urlElem.value="Upscaling "+leo
