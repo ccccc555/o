@@ -547,7 +547,7 @@ function leoCount(){
 
   fetch('https://cloud.leonardo.ai/api/rest/v1/me', option3)
     .then(response => response.json())
-    .then(response => alert("tokens remaining="+(1000-response.user_details.subscriptionTokens)) )
+    .then(response => alert("Access tokens remaining="+(1000-response.subscriptionTokens)) )
     .catch(err => console.error(err));
 }
 
