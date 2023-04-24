@@ -227,7 +227,7 @@
     var img =new Image()
     var img2 =new Image()
     var img3 =new Image()
-    var leoTime=0,leoWait=9, leoCredits="Credits"
+    var leoTime=0,leoWait=9, leoCredits=0
    
     
     img.onload = function(){ct1.drawImage(img, 0, 0,size,size)}
@@ -547,12 +547,12 @@ function leoCount(){
 
   fetch('https://cloud.leonardo.ai/api/rest/v1/me', option3)
     .then(response => response.json())
-    .then(response => {leoCredits=JSON.stringify(response);setTimeout(logCredits,2000)} )
+    .then(response => {leoCredits=response.user_details.subscriptionTokens;setTimeout(logCredits,2000)} )
     .catch(err => console.error(err));
 }
 
 function logCredits(){
-  console.log(leoCredits)
+  console.log(1000-leoCredits)
 }
     
 leoCount()
