@@ -538,7 +538,21 @@ if(retURL3.length>10){
   win = window.open(retURL3, '_blank');   win.focus(); }
 })
 
+    
+function leoCount(){
+  const opts = {
+    method: 'GET',
+    headers: {accept: 'application/json',authorization: `Bearer ${leoApiKey}`}
+   };
 
+  fetch('https://cloud.leonardo.ai/api/rest/v1/me', opts)
+    .then(response => response.json())
+    .then(response => alert("tokens remaining="+(1000-response.user_details.subscriptionTokens))
+    .catch(err => console.error(err));
+}
+
+leoCount()
+    
 function generatePrompt() {
   promp = "";
   if (document.getElementById("start_prompt").checked) {
