@@ -591,7 +591,7 @@ function leoVary(leoId){
 
 fetch('https://cloud.leonardo.ai/api/rest/v1/variations/'+leoId, option4)
   .then(response => response.json())
-  .then(data => {leo=data.sdUpscaleJob[0].id
+  .then(data => {leo=data.sdUpscaleJob.id
                 urlElem.value="Upscaling "+leo
                 leoTimer()})
   .catch(err => console.error(err));
