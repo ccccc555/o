@@ -259,19 +259,22 @@
     c2.width=size; c2.height=size
     c3.width=size; c3.height=size
     c4.width=size; c4.height=size
-    vc1.width=size; vc1.height=30
-    vc2.width=size; vc2.height=30
-    vc3.width=size; vc3.height=30
-    vc4.width=size; vc4.height=30
+    vc1.width=size; vc1.height=40
+    vc2.width=size; vc2.height=40
+    vc3.width=size; vc3.height=40
+    vc4.width=size; vc4.height=40
     vct1.font="30px Arial"
     vct1.fillStyle="yellow"
-    vct1.fillText("UpScale",20,20)
+    vct1.fillText("UpScale",20,25)
+    vct2.font="30px Arial"
     vct2.fillStyle="yellow"
-    vct2.fillText("UpScale",20,20)
+    vct2.fillText("UpScale",20,25)
+    vct3.font="30px Arial"
     vct3.fillStyle="yellow"
-    vct3.fillText("UpScale",20,20)
+    vct3.fillText("UpScale",20,25)
+    vct4.font="30px Arial"
     vct4.fillStyle="yellow"
-    vct4.fillText("UpScale",20,20)
+    vct4.fillText("UpScale",20,25)
     
     
     
@@ -589,8 +592,8 @@ function leoVary(leoId){
 fetch('https://cloud.leonardo.ai/api/rest/v1/variations/'+leoId, option4)
   .then(response => response.json())
   .then(response => {
-      leo=data.sdGenerationJob.sdUpscaleJob
-                urlElem.value="SeriesID "+leo
+      leo=data.sdUpscaleJob
+                urlElem.value="Upscaling "+leo
                 leoTimer()})
   .catch(err => console.error(err));
 }
