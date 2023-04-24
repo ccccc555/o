@@ -547,7 +547,7 @@ function leoCount(){
 
   fetch('https://cloud.leonardo.ai/api/rest/v1/me', option3)
     .then(response => response.json())
-    .then(response => {leoCredits=response.user_details[0].subscriptionTokens; setTimeout(logCredits,5500)} )
+    .then(response => {leoCredits=response.user_details[0].subscriptionTokens; setTimeout(logCredits,3000)} )
     .catch(err => console.error(err));
 }
 
@@ -555,7 +555,6 @@ function logCredits(){
   urlElem.value="Token count = "+leoCredits
 }
     
-leoCount()
     
 function generatePrompt() {
   promp = "";
@@ -710,6 +709,7 @@ function secondAPI(){
  })
   .catch(err => console.error(err));
 
+  setTimeout(leoCount,7000)
 }
 
 
