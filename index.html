@@ -585,11 +585,19 @@ if(retURL4.length>10){
 })
     
 function leoVary(leovId){
-  const option4 = {method: 'GET',
-    headers: {accept: 'application/json',authorization: `Bearer ${leoApiKey}`}
-  };
+  
+  const option4 = {
+  method: 'POST',
+  headers: {
+    accept: 'application/json',
+    'content-type': 'application/json',
+    authorization: `Bearer ${leoApiKey}`
+  },
+  body: JSON.stringify({id: leovId})
+};
+ 
 
-fetch('https://cloud.leonardo.ai/api/rest/v1/variations/'+leovId, option4)
+fetch('https://cloud.leonardo.ai/api/rest/v1/variations/upscale'+leovId, option4)
   .then(response => response.json())
   .then(data => {leo=data.sdUpscaleJob.id
                 urlElem.value="Upscaling "+leo
