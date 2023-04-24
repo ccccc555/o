@@ -540,14 +540,14 @@ if(retURL3.length>10){
 
     
 function leoCount(){
-  const opts = {
+  const option3 = {
     method: 'GET',
     headers: {accept: 'application/json',authorization: `Bearer ${leoApiKey}`}
    };
 
-  fetch('https://cloud.leonardo.ai/api/rest/v1/me', opts)
+  fetch('https://cloud.leonardo.ai/api/rest/v1/me', option3)
     .then(response => response.json())
-    .then(response => alert("tokens remaining="+(1000-response.user_details.subscriptionTokens))
+    .then(response => alert("tokens remaining="+(1000-response.user_details.subscriptionTokens)) )
     .catch(err => console.error(err));
 }
 
