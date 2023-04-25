@@ -622,13 +622,13 @@ fetch('https://cloud.leonardo.ai/api/rest/v1/variations/upscale', option4)
   .then(response => response.json())
   .then(response => {leo=response.sdUpscaleJob.id;
                 urlElem.value="Upscaled id="+leo;
-                setTimeout(forth,6000);
+                setTimeout(forth,7000);
                 })
   .catch(err => console.error(err));
 }
 
 function forth(){
-  urlElem.value="Please wait 15 seconds"
+  alert("Please wait 15 seconds")
   setTimeout(thirdApi,15000)
 }
     
