@@ -620,12 +620,28 @@ function leoUpscale(leouId){
 
 fetch('https://cloud.leonardo.ai/api/rest/v1/variations/upscale', option4)
   .then(response => response.json())
-  .then(data => {leo=data.generated_image_variation_generic[0].url
-                urlElem.value="Upscaled url=" //+leo
+  .then(response => {leo=response.sdUpscaledJob[0].id
+                urlElem.value="Upscaled id="+leo
+                setTimout(thirdApi(),7000)
                 })
   .catch(err => console.error(err));
 }
 
+function thirdApi(){
+  const options = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    authorization: `Bearer ${leoApiKey}`
+  }
+};
+
+fetch('https://cloud.leonardo.ai/api/rest/v1/variations/'+leo, options)
+  .then(response => response.json())
+  .then(response => urlElem.value="URL="+response.generated_image_variation_generic[0].url)
+  .catch(err => console.error(err));
+  
+}
    
 function leoCount(){
   const option3 = {
