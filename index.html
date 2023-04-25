@@ -88,6 +88,7 @@
     <canvas id="Canvas2" width="100" height="100" style="border:2px solid #d3d3d3"></canvas>
     <canvas id="Canvas3" width="100" height="100" style="border:2px solid #d3d3d3"></canvas>
     <canvas id="Canvas4" width="100" height="100" style="border:2px solid #d3d3d3"></canvas>
+    <canvas id="Canvas5" width="100" height="100" style="border:2px solid #d3d3d3"></canvas>
     <br>
  
     <textarea name="text" id="urltext" cols="70" rows="1"></textarea>
@@ -233,6 +234,8 @@
     var ct3 = c3.getContext("2d")
     var c4 = document.getElementById("Canvas4")
     var ct4 = c4.getContext("2d")
+    var c5 = document.getElementById("Canvas5")
+    var ct5 = c5.getContext("2d")
     var vc1 = document.getElementById("vCanvas1")
     var vct1 = vc1.getContext("2d")
     var vc2 = document.getElementById("vCanvas2")
@@ -245,6 +248,7 @@
     var img2 =new Image()
     var img3 =new Image()
     var img4 =new Image()
+    var img5 =new Image()
     var leoTime=0,leoWait=9, leoCredits, leoCredMax
     var varyStr="Upscale"
     
@@ -254,6 +258,7 @@
     img2.onload = function(){ct2.drawImage(img2, 0, 0,size,size)}
     img3.onload = function(){ct3.drawImage(img3, 0, 0,size,size)}
     img4.onload = function(){ct4.drawImage(img4, 0, 0,size,size)}
+    img5.onload = function(){ct5.drawImage(img5, 0, 0,100,100)}
     img.src="ii.png"
     var paid=0,subscriber="1234"
     var size=190,dims,leo, leoApiKey
@@ -590,7 +595,7 @@ if(retURL2.length>10){
   win = window.open(retURL2, '_blank');   win.focus(); }
 })
 vc2.addEventListener("click", function() {
-      if(retURL.length>10){
+      if(retURL2.length>10){
         urlElem.value="Upscaling";leoUpscale(retId2)
       }
 })
@@ -598,9 +603,19 @@ c3.addEventListener("click", function() {
 if(retURL3.length>10){
   win = window.open(retURL3, '_blank');   win.focus(); }
 })
+vc3.addEventListener("click", function() {
+      if(retURL3.length>10){
+        urlElem.value="Upscaling";leoUpscale(retId3)
+      }
+})
 c4.addEventListener("click", function() {
 if(retURL4.length>10){
   win = window.open(retURL4, '_blank');   win.focus(); }
+})
+vc4.addEventListener("click", function() {
+      if(retURL4.length>10){
+        urlElem.value="Upscaling";leoUpscale(retId4)
+      }
 })
 
 
@@ -622,14 +637,14 @@ fetch('https://cloud.leonardo.ai/api/rest/v1/variations/upscale', option4)
   .then(response => response.json())
   .then(response => {leo=response.sdUpscaleJob.id;
                 urlElem.value="Upscaled id="+leo;
-                setTimeout(forth,7000);
+                setTimeout(forth,6000);
                 })
   .catch(err => console.error(err));
 }
 
 function forth(){
-  alert("Please wait 15 seconds")
-  setTimeout(thirdApi,15000)
+  alert("Please wait 20 seconds")
+  setTimeout(thirdApi,20000)
 }
     
 function thirdApi(){
@@ -643,7 +658,7 @@ function thirdApi(){
 
 fetch('https://cloud.leonardo.ai/api/rest/v1/variations/'+leo, options)
   .then(response => response.json())
-  .then(response => urlElem.value=response.generated_image_variation_generic[0].url)
+  .then(response => img5.src=response.generated_image_variation_generic[0].url)
   .catch(err => console.error(err));
   
 }
