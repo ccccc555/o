@@ -268,7 +268,7 @@
     vct1.fillText("UpScale",20,30)
     vct2.font="30px Arial"
     vct2.fillStyle="yellow"
-    vct2.fillText("UpScale",20,30)
+    vct2.fillText("Vary",20,30)
     vct3.font="30px Arial"
     vct3.fillStyle="yellow"
     vct3.fillText("UpScale",20,30)
@@ -568,12 +568,15 @@ if(retURL.length>10){
   win = window.open(retURL, '_blank');   win.focus(); }
 })
 vc1.addEventListener("click", function() {
-      if(retURL.length>10){urlElem.value="Upscaling";leoVary(retId1)}
+      if(retURL.length>10){urlElem.value="Upscaling";leoUpscale(retId1)}
 })
       
 c2.addEventListener("click", function() {
 if(retURL2.length>10){
   win = window.open(retURL2, '_blank');   win.focus(); }
+})
+vc2.addEventListener("click", function() {
+      if(retURL.length>10){urlElem.value="Varying";leoVary(retId2)}
 })
 c3.addEventListener("click", function() {
 if(retURL3.length>10){
@@ -583,8 +586,21 @@ c4.addEventListener("click", function() {
 if(retURL4.length>10){
   win = window.open(retURL4, '_blank');   win.focus(); }
 })
-    
+
 function leoVary(leovId){
+/*  const options = {method: 'GET', headers: {accept: 'application/json'}};
+
+fetch('https://cloud.leonardo.ai/api/rest/v1/variations/'+leovId, options)
+  .then(response => response.json())
+  .then(response => leo=data.sdVaryJob.id
+                urlElem.value="Vary "+leo
+                leovTimer()}
+    )
+  .catch(err => console.error(err));
+  */
+}
+    
+function leoUpscale(leouId){
   leoWait=4
   const option4 = {
   method: 'POST',
@@ -593,7 +609,7 @@ function leoVary(leovId){
     'content-type': 'application/json',
     authorization: `Bearer ${leoApiKey}`
   },
-  body: JSON.stringify({id: leovId})
+  body: JSON.stringify({id: leouId})
 };
  
 
@@ -608,8 +624,8 @@ fetch('https://cloud.leonardo.ai/api/rest/v1/variations/upscale', option4)
 function leovTimer(){
   if(leoTime<leoWait){ct1.fillRect(0,.7*size,.05*leoTime*size,.2*size); leoTime++;setTimeout(leovTimer,1000);return}
   leoTime=0
-  urlElem.value="UpScaling Premium feature"
- // secondAPI()
+  urlElem.value="Premium feature"
+  secondAPI()
 }
 
    
