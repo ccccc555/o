@@ -82,6 +82,7 @@
     <canvas id="vCanvas2" width="100" height="20" style="border:2px solid #d3d3d3"></canvas>
     <canvas id="vCanvas3" width="100" height="20" style="border:2px solid #d3d3d3"></canvas>
     <canvas id="vCanvas4" width="100" height="20" style="border:2px solid #d3d3d3"></canvas>
+    <canvas id="vCanvas5" width="50" height="50" style="border:2px solid #d3d3d3"></canvas>
     <br>
     <canvas id="Canvas1" width="100" height="100" style="border:2px solid #d3d3d3"></canvas>
     <canvas id="Canvas2" width="100" height="100" style="border:2px solid #d3d3d3"></canvas>
@@ -240,11 +241,17 @@
     var vct3 = vc3.getContext("2d")
     var vc4 = document.getElementById("vCanvas4")
     var vct4 = vc4.getContext("2d")
+    var vc5 = document.getElementById("vCanvas4")
+    var vct5 = vc5.getContext("2d")
     var img =new Image()
     var img2 =new Image()
     var img3 =new Image()
     var img4 =new Image()
     var leoTime=0,leoWait=9, leoCredits, leoCredMax
+    var varyStr="Vary"
+    vct5.font="30px Arial"
+    vct5.fillStyle="yellow"
+    vct5.fillText("v /A",5,30)
    
     
     img.onload = function(){ct1.drawImage(img, 0, 0,size,size)}
@@ -263,20 +270,29 @@
     vc2.width=size; vc2.height=48
     vc3.width=size; vc3.height=48
     vc4.width=size; vc4.height=48
+    
+function vary(){
+    if (setVary=="Vary"){setVary="Upscale"}
+    else {setVary="Vary"}
+  
     vct1.font="30px Arial"
     vct1.fillStyle="yellow"
-    vct1.fillText("UpScale",20,30)
     vct2.font="30px Arial"
     vct2.fillStyle="yellow"
-    vct2.fillText("Vary",20,30)
     vct3.font="30px Arial"
     vct3.fillStyle="yellow"
-    vct3.fillText("UpScale",20,30)
     vct4.font="30px Arial"
     vct4.fillStyle="yellow"
-    vct4.fillText("UpScale",20,30)
+    vct1.clearRect(100,50)
+    vct2.clearRect(100,50)
+    vct3.clearRect(100,50)
+    vct4.clearRect(100,50)
     
-    
+    vct1.fillText(varyStr,20,30)
+    vct2.fillText(varyStr,20,30)
+    vct3.fillText(varyStr,20,30)
+    vct4.fillText(varyStr,20,30)
+}   
     
     ct1.fillStyle="yellow"
     var waiting=new Image()
@@ -586,6 +602,7 @@ c4.addEventListener("click", function() {
 if(retURL4.length>10){
   win = window.open(retURL4, '_blank');   win.focus(); }
 })
+vc5.addEventListener("click", function(){vary()} )
 
 function leoVary(leovId){
 /*  const options = {method: 'GET', headers: {accept: 'application/json'}};
