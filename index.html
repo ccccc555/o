@@ -663,8 +663,8 @@ function leoCount(){
 
   fetch('https://cloud.leonardo.ai/api/rest/v1/me', option3)
     .then(response => response.json())
-    .then(response => {leoCredits=response.user_details.subscriptionTokens;
-                       leoCredMax=response.user_details.subscriptionGptTokens;
+    .then(response => {leoCredits=response.user_details[0].subscriptionTokens;
+                       leoCredMax=response.user_details[0].subscriptionGptTokens;
                        setTimeout(logCredits,3000)} )
     .catch(err => urlElem.value="API error="+err);
 }
