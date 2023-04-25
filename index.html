@@ -620,8 +620,7 @@ function leoUpscale(leouId){
 
 fetch('https://cloud.leonardo.ai/api/rest/v1/variations/upscale', option4)
   .then(response => response.json())
-  .then(data => {console.log(data)
-  //leo=data.sdUpscaleJob.url
+  .then(data => {leo=data.generated_image_variation_generic[0].url
                 urlElem.value="Upscaled url=" //+leo
                 })
   .catch(err => console.error(err));
