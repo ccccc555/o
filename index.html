@@ -584,7 +584,10 @@ if(retURL.length>10){
   win = window.open(retURL, '_blank');   win.focus(); }
 })
 vc1.addEventListener("click", function() {
-      if(retURL.length>10){urlElem.value="Upscaling";leoUpscale(retId1)}
+      if(retURL.length>10){
+        if(varyStr=="Vary"){urlElem.value="Varying";leoVary(retId1)}
+        else{urlElem.value="Upscaling";leoUpscale(retId1)}
+      }
 })
       
 c2.addEventListener("click", function() {
@@ -592,7 +595,10 @@ if(retURL2.length>10){
   win = window.open(retURL2, '_blank');   win.focus(); }
 })
 vc2.addEventListener("click", function() {
-      if(retURL.length>10){urlElem.value="Varying";leoVary(retId2)}
+      if(retURL.length>10){
+        if(varyStr=="Vary"){urlElem.value="Varying";leoVary(retId1)}
+        else{urlElem.value="Upscaling";leoUpscale(retId1)}
+      }
 })
 c3.addEventListener("click", function() {
 if(retURL3.length>10){
