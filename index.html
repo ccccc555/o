@@ -224,7 +224,7 @@
     generateButton.style.font = "4vw Montserrat"
     copyButton.style.font = "4vw Montserrat"
     urlButton.style.font = "4vw Montserrat"
-    var promp="",retURL="",retURL2="",retURL3="",retURL4=""
+    var promp="",retURL="",retURL2="",retURL3="",retURL4="",retURL5=""
     var retId1="",retId2="",retId3="",retId4=""
     var c1 = document.getElementById("Canvas1")
     var ct1 = c1.getContext("2d")
@@ -617,6 +617,10 @@ vc4.addEventListener("click", function() {
         urlElem.value="Upscaling";leoUpscale(retId4)
       }
 })
+c5.addEventListener("click", function() {
+  if(retURL5.length>10){
+    win = window.open(retURL5, '_blank');   win.focus(); }
+  })
 
 
 
@@ -658,7 +662,7 @@ function thirdApi(){
 
 fetch('https://cloud.leonardo.ai/api/rest/v1/variations/'+leo, options)
   .then(response => response.json())
-  .then(response => img5.src=response.generated_image_variation_generic[0].url)
+  .then(response => {retURL5=response.generated_image_variation_generic[0].url; img5.src=retURL5} )
   .catch(err => console.error(err));
   
 }
