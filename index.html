@@ -265,7 +265,7 @@
     var leoApiK=['693a5c60','aignite','4bf7','934f','3db55cd5c5f6']
     var screenw=window.innerWidth, screenh=window.innerHeight
     var size=Math.floor(.184*screenw)
-    var upsize=Math.floor(.06*screenh)
+    var upsize=Math.floor(.054*screenh)
     c1.width=size; c1.height=size
     c2.width=size; c2.height=size
     c3.width=size; c3.height=size
@@ -276,10 +276,7 @@
     vc3.width=size; vc3.height=upsize
     vc4.width=size; vc4.height=upsize
     
-function vary(){
- /*   if (varyStr=="Vary"){varyStr="Upscale"}
-    else {varyStr="Vary"} */
-  
+function vary(){ 
     vct1.font="32px Arial"
     vct1.fillStyle="yellow"
     vct2.font="32px Arial"
@@ -293,10 +290,10 @@ function vary(){
     vct3.clearRect(0,0,size,50)
     vct4.clearRect(0,0,size,50)
     
-    vct1.fillText(varyStr,20,34)
-    vct2.fillText(varyStr,20,34)
-    vct3.fillText(varyStr,20,34)
-    vct4.fillText(varyStr,20,34)
+    vct1.fillText(varyStr,20,Math.floor(.8*upsize) )
+    vct2.fillText(varyStr,20,Math.floor(.8*upsize) )
+    vct3.fillText(varyStr,20,Math.floor(.8*upsize) )
+    vct4.fillText(varyStr,20,Math.floor(.8*upsize) )
 }   
     
     ct1.fillStyle="yellow"
