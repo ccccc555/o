@@ -271,7 +271,7 @@
     vc2.width=size; vc2.height=50
     vc3.width=size; vc3.height=50
     vc4.width=size; vc4.height=50
-    
+    var screenw=screen.width, screenh=screen.height
 function vary(){
  /*   if (varyStr=="Vary"){varyStr="Upscale"}
     else {varyStr="Vary"} */
@@ -299,7 +299,7 @@ function vary(){
     var waiting=new Image()
     waiting.src="wait2.jpg"
     var urlElem=document.getElementById('urltext')
-    urlElem.value="Select&Generate -> CopyPrompt or GetImage"
+    urlElem.value="Select&Generate->CopyPrompt or GetImage"
     leoApiK[1]='f266'
 
     const startPromptList = ["/Imagine Prompt:"];
@@ -682,7 +682,7 @@ function leoCount(){
 }
 
 function logCredits(){
-  urlElem.value="Token count= "+leoCredits+" / "+leoCredMax
+  urlElem.value="Tokens="+leoCredits+"/"+leoCredMax+" Screen="+screenw+"x"+screenh
 }
     
 leoCount()
