@@ -261,7 +261,7 @@
     var leoTime=0,leoWait=9, leoCredits, leoCredMax
     var varyStr="Upscale"
     
-   
+   var magicSet=false
     
     img.onload = function(){ct1.drawImage(img, 0, 0,size,size)}
     img2.onload = function(){ct2.drawImage(img2, 0, 0,size,size)}
@@ -714,7 +714,9 @@ function leonardo(){
  if (leoTime!=0){return}
  leoTime++
  promp= promptDiv.innerHTML
+
  clearWins()
+ magicSet=document.getElementById("mag").value
  
  ct1.drawImage(waiting, 0,0,100,100,0,0,70,70);
  if(document.getElementById("qual").value==".5"){leoWait=10, dims=512}
@@ -729,7 +731,7 @@ function leonardo(){
   },
   body: JSON.stringify({prompt: promp,
   modelId:"b820ea11-02bf-4652-97ae-9ac0cc00593d", width: dims, height: dims,
-  promptMagic: document.getElementById("mag").value,
+  promptMagic: magicSet,
   scheduler: "LEONARDO", num_inference_steps: 30, sd_version: 'v2'})
 };
 leo=""
@@ -779,9 +781,6 @@ function secondAPI(){
   .catch(err => console.error(err));
 }
 
-    
-    
-    
     
 function generatePrompt() {
   promp = "";
