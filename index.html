@@ -729,6 +729,7 @@ function leonardo(){
   },
   body: JSON.stringify({prompt: promp,
   modelId:"b820ea11-02bf-4652-97ae-9ac0cc00593d", width: dims, height: dims,
+  promptMagic: document.getElementById("mag").value,
   scheduler: "LEONARDO", num_inference_steps: 30, sd_version: 'v2'})
 };
 leo=""
