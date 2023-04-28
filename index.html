@@ -747,7 +747,7 @@ fetch('https://cloud.leonardo.ai/api/rest/v1/generations', option1)
 
 function leoTimer(){
  if(magicSet==true){
- ct1.fillRect(Math.random()*size,Math.random()*size,2,2) }
+ ct1.fillRect(Math.random()*size,Math.random()*size,3,3) }
   if(leoTime<leoWait){ct1.fillRect(0,.7*size,.01*leoTime*size,.2*size); leoTime++;setTimeout(leoTimer,1000);return}
   leoTime=0
   alert("Fetch 4 from Leonardo API")
