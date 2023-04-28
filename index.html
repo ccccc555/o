@@ -721,9 +721,9 @@ function leonardo(){
     {magicSet=true}
  
  ct1.drawImage(waiting, 0,0,100,100,0,0,70,70);
- if(document.getElementById("qual").value==".5"){leoWait=10, dims=512}
- if(document.getElementById("qual").value=="1" ){leoWait=14, dims=768}
- if(document.getElementById("qual").value=="2" ){leoWait=20, dims=1024}
+ if(document.getElementById("qual").value==".5"){leoWait=100, dims=512}
+ if(document.getElementById("qual").value=="1" ){leoWait=140, dims=768}
+ if(document.getElementById("qual").value=="2" ){leoWait=200, dims=1024}
  const option1 = {
   method: 'POST',
   headers: {
@@ -746,8 +746,9 @@ fetch('https://cloud.leonardo.ai/api/rest/v1/generations', option1)
 }
 
 function leoTimer(){
- ct1.fillRect(Math.random()*size,Math.random()*size,2,2)
-  if(leoTime<leoWait){ct1.fillRect(0,.7*size,.05*leoTime*size,.2*size); leoTime++;setTimeout(leoTimer,1000);return}
+ if(magicSet==true){
+ ct1.fillRect(Math.random()*size,Math.random()*size,2,2) }
+  if(leoTime<leoWait){ct1.fillRect(0,.7*size,.01*leoTime*size,.2*size); leoTime++;setTimeout(leoTimer,1000);return}
   leoTime=0
   alert("Fetch 4 from Leonardo API")
   secondAPI()
