@@ -716,7 +716,9 @@ function leonardo(){
  promp= promptDiv.innerHTML
 
  clearWins()
- magicSet=document.getElementById("mag").value
+ magicSet=false
+ if(document.getElementById("mag").value=='true')
+    {magicSet=true}
  
  ct1.drawImage(waiting, 0,0,100,100,0,0,70,70);
  if(document.getElementById("qual").value==".5"){leoWait=10, dims=512}
