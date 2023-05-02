@@ -3,8 +3,7 @@
   <head>
      <title>IdeaIgniter</title>
      <link rel="icon" type="image/png" href="iifavicon.png"/>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6591798789449327"
-        crossorigin="anonymous"></script>
+    
     <style>
       body {
         font-size: 22px;
@@ -31,12 +30,12 @@
       }
 
       .prompt {
-        background-color: #000000;
-        color: #ECE48C;
+        background-color: #102010;
+        color: #ECE49C;
         font-family: "Montserrat";
-        font-size: 1rem;
-        width: 700px;
-        height: 100px;
+        font-size: 2rem;
+        width: 900px;
+        height: 140px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -82,7 +81,7 @@
     <canvas id="vCanvas2" width="100" height="20" style="border:2px solid #f393d3"></canvas>
     <canvas id="vCanvas3" width="100" height="20" style="border:2px solid #f393d3"></canvas>
     <canvas id="vCanvas4" width="100" height="20" style="border:2px solid #f393d3"></canvas>
-   
+    <canvas id="vCanvas5" width="100" height="20" style="border:2px solid #f393d3"></canvas>
     <br>
     <canvas id="Canvas1" width="100" height="100" style="border:2px solid #d3d3d3"></canvas>
     <canvas id="Canvas2" width="100" height="100" style="border:2px solid #d3d3d3"></canvas>
@@ -91,7 +90,8 @@
     <canvas id="Canvas5" width="100" height="100" style="border:2px solid #d3d3d3"></canvas>
     <br>
  
-    <textarea name="text" id="urltext" cols="74" rows="1"></textarea>
+    <textarea name="text" id="urltext" cols="80" rows="1"></textarea>
+    <br>
     <br>
    
     <div class="checkbox-container">
@@ -253,12 +253,14 @@
     var vct3 = vc3.getContext("2d")
     var vc4 = document.getElementById("vCanvas4")
     var vct4 = vc4.getContext("2d")
+    var vc5 = document.getElementById("vCanvas5")
+    var vct5 = vc5.getContext("2d")
     var img =new Image()
     var img2 =new Image()
     var img3 =new Image()
     var img4 =new Image()
     var img5 =new Image()
-    var leoTime=0,leoWait=9, leoCredits, leoCredMax
+    var leoTime=0,leoWait, leoCredits, leoCredMax
     var varyStr="Upscale"
     
    var magicSet=false
@@ -269,9 +271,14 @@
     img4.onload = function(){ct4.drawImage(img4, 0, 0,size,size)}
     img5.onload = function(){ct5.drawImage(img5, 0, 0,size-10,size-10)}
     img.src="ii.png"
-    var paid=0,subscriber="1234"
-    var dims,leo, leoApiKey
+    
+    var dims,leo
+  //  var leoKeyA=document.cookie.split(';')    
+  //  var leoApiKey=leoKeyA[0].slice(2)
+    
     var leoApiK=['693a5c60','f266','4bf7','934f','3db55cd5c5f6']
+    var leoApiKey=leoApiK.join('-')
+    
     var screenw=window.innerWidth, screenh=window.innerHeight
     var size=Math.floor(.184*screenw)
     var upsize=Math.floor(.054*screenh)
@@ -284,7 +291,11 @@
     vc2.width=size; vc2.height=upsize
     vc3.width=size; vc3.height=upsize
     vc4.width=size; vc4.height=upsize
-    
+    vc5.width=size-10; vc5.height=upsize
+    vct5.font="32px Arial"
+    vct5.fillStyle="yellow"
+    vct5.fillText('ApiKey',2,Math.floor(.5*upsize))
+    vct5.fillText(leoApiKey,2,Math.floor(.9*upsize))
 function vary(){ 
     vct1.font="32px Arial"
     vct1.fillStyle="yellow"
@@ -587,8 +598,8 @@ function vary(){
   const comicList = [`Watchmen`,`The Dark Knight Returns`,`Sandman`,`Preacher`,`Maus`,`Batman: Year One`,`Saga`,`V for Vendetta`,`Y: The Last Man`,`Transmetropolitan`,`The Walking Dead`,`Fables`,`Sin City`,`Locke & Key`,`The Boys`,`The Umbrella Academy`,`Scott Pilgrim`,`Bone`,`Hellboy`,`The Sandman Universe`,`Batman: The Killing Joke`,`Kingdom Come`,`Marvels`,`Batman: The Long Halloween`,`Batman: Hush`,`All-Star Superman`,`Superman: Red Son`,`The Infinity Gauntlet`,`Spider-Man: Kraven's Last Hunt`,`The Amazing Spider-Man: The Night Gwen Stacy Died`,`Batman: Arkham Asylum`,`The Authority`,`The Invisibles`,`Batman: The Court of Owls`,`Daredevil: Born Again`,`Civil War`,`The Ultimates`,`X-Men: God Loves, Man Kills`,`The New Mutants`,`Saga of the Swamp Thing`,`American Splendor`,`Strangers in Paradise`,`Bone`,`The Maxx`,`Batman: The Dark Knight Strikes Again`,`Daredevil: The Man Without Fear`,`The Punisher: Welcome Back, Frank`,`Marvels: Eye of the Camera`,`Batman: Year 100`,`Batman: The Black Mirror`,`Batman: The Dark Knight Returns - The Last Crusade`,`Batman: The Dark Knight III - The Master Race`,`Batman: White Knight`,`Batman: Curse of the White Knight`,`Batman: Last Knight on Earth`,`Batman: Three Jokers`,`Superman: Earth One`,`Joker`,`Harleen`,`Spider-Man: Life Story`,`Doomsday Clock`,`Watchmen: The HBO Series`,`The Sandman: Overture`,`Locke & Key: Welcome to Lovecraft`,`Chew`,`Invincible`,`Sex Criminals`,`Lazarus`,`Black Hammer`,`The Fade Out`,`Southern Bastards`,`Manifest Destiny`,`Low`,`Wytches`,`We3`,`Scalped`,`Sweet Tooth`,`Daytripper`,`The Wicked + The Divine`,`Rat Queens`,`Red Sonja`,`Lumberjanes`,`Bitch Planet`,`Ms. Marvel`,`Captain Marvel`,`Hawkeye`,`Runaways`,`The Immortal Hulk`,`X-Men: Grand Design`,`Thor: God of Thunder`,`The Vision`,`The Sheriff of Babylon`,`East of West`,`Descender`,`Monstress`,`Paper Girls`,`Punk Rock Jesus`,`Silver Surfer`,`God Country`,`Injection`,`Moon Knight`,`Snotgirl`,`The Fix`,`Royal City`,`My Favorite Thing Is Monsters`,`Rumble`,`The Flintstones`,`Black Monday Murders`,`Dept. H`,`Briggs Land`,`Lady Killer`,`Dept. H`,`Briggs Land`,`Lady Killer`,`Tomboy`,`Moonshine`,`The Spire`,`The Autumnlands`,`Head Lopper`,`Wolf`,`Nailbiter`,`Postal`,`Southern Cross`,`Redlands`,`Black Magick`,`Copperhead`,`The Chilling Adventures of Sabrina`,`Archie`,`Afterlife with Archie`,`Fatale`,`Criminal`,`The Fade Out`,`Undertow`,`Zero`,`Alex + Ada`,`The Private Eye`];
   const comicStyleList = [`Superhero`,`Science Fiction`,`Horror`,`Fantasy`,`Mystery`,`Action/Adventure`,`Comedy`,`Crime`,`Historical Fiction`,`Romance`,`Drama`,`Thriller`,`Slice of Life`,`Western`,`Satire`,`Post-Apocalyptic`,`Spy`,`Sports`,`War`,`Medical Drama`,`Steampunk`,`Cyberpunk`,`Dystopian`,`Urban Fantasy`,`Magical Girl`,`Magical Realism`,`Gothic`,`Surrealism`,`Absurdism`,`Romantic Comedy`,`Musical`,`Documentary`,`Biography`,`Autobiography`,`Travelogue`,`Cooking`,`Self-Help`,`Philosophy`,`Political Satire`,`Coming-of-Age`,`Erotica`,`Educational`,`Art`,`Experimental`,`Superhero Deconstruction`,`Anthology`,`Crossover`,`Alternate History`,`Furry`,`LGBTQ+`];
   const aspectRatioList = ["1:1","2:1","16:19"]
-  leoApiKey=leoApiK.join('-')  
   
+  var reWait=0, upWait=2
 c1.addEventListener("click", function() {
 if(retURL.length>10){
   win = window.open(retURL, '_blank');   win.focus(); }
@@ -630,11 +641,18 @@ c5.addEventListener("click", function() {
   if(retURL5.length>10){
     win = window.open(retURL5, '_blank');   win.focus(); }
   })
-
+/* vc5.addEventListener("click", function() {
+  leoApiKey=prompt('Enter API key')
+  document.cookie = "k="+leoApiKey+"; expires=Thu, 1 Dec 2050 12:00:00 UTC";
+    vct5.clearRect(0,0,size,upsize)
+    vct5.fillText(leoApiKey,2,Math.floor(.8*upsize))
+    urlElem.value='Checking API key'
+    leoCount()
+        }) */
 
 
 function leoUpscale(leouId){
-  leoWait=4
+ 
   const option4 = {
   method: 'POST',
   headers: {
@@ -650,17 +668,18 @@ fetch('https://cloud.leonardo.ai/api/rest/v1/variations/upscale', option4)
   .then(response => response.json())
   .then(response => {leo=response.sdUpscaleJob.id;
                 urlElem.value="Upscaled id="+leo;
-                setTimeout(forth,6000);
+                setTimeout(forth,2000);
                 })
-  .catch(err => console.error(err));
+  .catch(err => alert(err));
 }
 
 function forth(){
-  alert("Please wait 20 seconds")
-  setTimeout(thirdApi,20000)
+  urlElem.value="Please wait 20 seconds"
+  setTimeout(thirdApi,19000)
 }
     
 function thirdApi(){
+  upWait++
   const options = {
   method: 'GET',
   headers: {
@@ -671,9 +690,11 @@ function thirdApi(){
 
 fetch('https://cloud.leonardo.ai/api/rest/v1/variations/'+leo, options)
   .then(response => response.json())
-  .then(response => {retURL5=response.generated_image_variation_generic[0].url; img5.src=retURL5} )
-  .catch(err => console.error(err));
-  
+  .then(response => {retURL5=response.generated_image_variation_generic[0].url;     
+       img5.src=retURL5
+       leoCount()   
+       } )
+  .catch(err => {alert('Upscale err='+err)}); 
 }
    
 function leoCount(){
@@ -686,16 +707,16 @@ function leoCount(){
     .then(response => response.json())
     .then(response => {leoCredits=response.user_details[0].subscriptionTokens;
                        leoCredMax=response.user_details[0].subscriptionGptTokens;
-                       setTimeout(logCredits,3000)} )
+                       logCredits()} )
     .catch(err => urlElem.value="API error="+err);
 }
 
 function logCredits(){
-  urlElem.value="Tokens="+leoCredits+"/"+leoCredMax+" Screen="+screenw+"x"+screenh
+  urlElem.value="Token "+leoCredits+"/"+leoCredMax+" Screen "+screenw+"x "+screenh
 }
     
-leoCount()
-vary()
+setTimeout(leoCount,2900)
+
 
 
 function clearWins(){
@@ -711,6 +732,7 @@ urlElem.value="Processing..."
 }
 
 function leonardo(){
+  reWait=0
  if (leoTime!=0){return}
  leoTime++
  promp= promptDiv.innerHTML
@@ -721,10 +743,11 @@ function leonardo(){
     {magicSet=true}
  
  ct1.drawImage(waiting, 0,0,100,100,0,0,70,70);
- if(document.getElementById("qual").value==".5"){leoWait=100, dims=512}
- if(document.getElementById("qual").value=="1" ){leoWait=140, dims=768}
- if(document.getElementById("qual").value=="2" ){leoWait=200, dims=1024}
- const option1 = {
+ if(document.getElementById("qual").value==".5"){leoWait=40, dims=512}
+ if(document.getElementById("qual").value=="1" ){leoWait=45, dims=768}
+ if(document.getElementById("qual").value=="2" ){leoWait=50, dims=1024}
+ 
+  const option1 = {
   method: 'POST',
   headers: {
     accept: 'application/json',
@@ -742,19 +765,24 @@ fetch('https://cloud.leonardo.ai/api/rest/v1/generations', option1)
   .then(data => {leo=data.sdGenerationJob.generationId
                 urlElem.value="SeriesID "+leo
                 leoTimer()})
-  .catch(err => console.error(err));
+  .catch(err => {alert('APIerror check key')
+                 leoTime=0
+                 clearWins()
+                 urlElem.value=""
+                 }
+                 );
 }
 
 function leoTimer(){
  if(magicSet==true){
  ct1.fillRect(Math.random()*size,Math.random()*size,3,3) }
-  if(leoTime<leoWait){ct1.fillRect(0,.7*size,.01*leoTime*size,.2*size); leoTime++;setTimeout(leoTimer,100);return}
-  leoTime=0
-  alert("Fetch 4 from Leonardo API")
+  if(leoTime<leoWait+10*reWait){ct1.fillRect(0,.7*size,.004*leoTime*size,.2*size); leoTime++;setTimeout(leoTimer,100);return}
+  
   secondAPI()
 }
 
 function secondAPI(){
+  urlElem.value='Fetching Image URLs'
  ct1.drawImage(waiting, 100,0,100,100,0,0,70,70);
   const option2 = {
   method: 'GET',
@@ -767,6 +795,8 @@ function secondAPI(){
    fetch('https://cloud.leonardo.ai/api/rest/v1/generations/'+leo, option2)
   .then(response => response.json())
   .then(data => {
+     
+      leoTime=0
     retURL=data.generations_by_pk.generated_images[0].url
     retId1=data.generations_by_pk.generated_images[0].id
     img.src =retURL
@@ -779,10 +809,14 @@ function secondAPI(){
     retURL4=data.generations_by_pk.generated_images[3].url
     retId4=data.generations_by_pk.generated_images[3].id
     img4.src =retURL4
-     
+    vary()
     urlElem.value="Click to Enlarge"
  })
-  .catch(err => console.error(err));
+  .catch(err =>{
+       reWait++
+       urlElem.value='..Waiting x'+reWait
+       if(reWait<50){leoTimer()}
+     });
 }
 
     
@@ -864,10 +898,7 @@ function generatePrompt() {
   });
 
   urlButton.addEventListener("click", function() {
-//  if(paid!=subscriber){paid=prompt("Enter Subscriber's code")}
-//  if(paid==subscriber){
-     leonardo()
-//    } 
+    leonardo()
   });
     
 copyButton.addEventListener("click", function() {
