@@ -758,10 +758,10 @@ function leonardo(){
  if(document.getElementById("qual").value=="1" ){leoWait=45, dims=768}
  if(document.getElementById("qual").value=="2" ){leoWait=50, dims=1024}
  img2img=""
- if(document.getElementById("im2").value=="1"){img2img=retId1}
- if(document.getElementById("im2").value=="2"){img2img=retId2}  
- if(document.getElementById("im2").value=="3"){img2img=retId3}
- if(document.getElementById("im2").value=="4"){img2img=retId4}
+ if(document.getElementById("im2").value=="1"){img2img=retId1; img5.src=retURL}
+ if(document.getElementById("im2").value=="2"){img2img=retId2; img5.src=retURL2}  
+ if(document.getElementById("im2").value=="3"){img2img=retId3; img5.src=retURL3}
+ if(document.getElementById("im2").value=="4"){img2img=retId4; img5.src=retURL4}
  if(img2img!=""){ alert("Using previous Img ID="+img2img) }
 
  
