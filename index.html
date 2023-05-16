@@ -220,6 +220,16 @@
         <button id="copy-button">Copy</button>
         <button id="url-button">Get Image</button>
       </div>
+       <div class="checkbox">
+        <label for="img2">Img2Img</label>
+          <select name="img2" id="qual">
+            <option value="">None</option>
+            <option value="1">1</option>  
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+      </div>
       
       <div id="donation-button" class="donation-button">Donations</div>
     </div>
@@ -260,6 +270,7 @@
     var img3 =new Image()
     var img4 =new Image()
     var img5 =new Image()
+    var img2img
     var leoTime=0,leoWait, leoCredits, leoCredMax
     var varyStr="Upscale"
     
@@ -746,6 +757,13 @@ function leonardo(){
  if(document.getElementById("qual").value==".5"){leoWait=40, dims=512}
  if(document.getElementById("qual").value=="1" ){leoWait=45, dims=768}
  if(document.getElementById("qual").value=="2" ){leoWait=50, dims=1024}
+ img2img=""
+ if(document.getElementById("img2").value=="1"){img2img=retId1}
+ if(document.getElementById("img2").value=="2"){img2img=retId2}  
+ if(document.getElementById("img2").value=="3"){img2img=retId3}
+ if(document.getElementById("img2").value=="1"){img2img=retId4}
+ if(img2imag!=""){alert("Using previous Img ID="+img2img) }
+
  
   const option1 = {
   method: 'POST',
@@ -756,6 +774,7 @@ function leonardo(){
   },
   body: JSON.stringify({prompt: promp,
   modelId:"b820ea11-02bf-4652-97ae-9ac0cc00593d", width: dims, height: dims,
+  init_generation_image_id: img2img
   promptMagic: magicSet,
   scheduler: "LEONARDO", num_inference_steps: 30, sd_version: 'v2'})
 };
