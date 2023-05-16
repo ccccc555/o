@@ -748,7 +748,7 @@ function leonardo(){
  leoTime++
  promp= promptDiv.innerHTML
 
- clearWins()
+
  magicSet=false
  if(document.getElementById("mag").value=='true')
     {magicSet=true}
@@ -762,7 +762,9 @@ function leonardo(){
  if(document.getElementById("im2").value=="2"){img2img=retId2; img5.src=retURL2}  
  if(document.getElementById("im2").value=="3"){img2img=retId3; img5.src=retURL3}
  if(document.getElementById("im2").value=="4"){img2img=retId4; img5.src=retURL4}
+ clearWins()
  if(img2img!=""){ alert("Using previous Img ID="+img2img) }
+ 
 
  
   const option1 = {
