@@ -209,6 +209,15 @@
           <option value="true">true</option>
         </select>
       </div>
+      
+      
+      <div class="checkbox">
+        <label for="tile">Tiling</label>
+        <select name="tile" id="til">
+          <option value="false">false</option> 
+          <option value="true">true</option>
+        </select>
+      </div>
 
     </div>
 
@@ -752,6 +761,9 @@ function leonardo(){
  magicSet=false
  if(document.getElementById("mag").value=='true')
     {magicSet=true}
+   tileSet=false
+ if(document.getElementById("til").value=='true')
+    {tileSet=true}
  
  ct1.drawImage(waiting, 0,0,100,100,0,0,70,70);
  if(document.getElementById("qual").value==".5"){leoWait=40, dims=512}
@@ -777,6 +789,7 @@ function leonardo(){
   body: JSON.stringify({prompt: promp,
   modelId:"b820ea11-02bf-4652-97ae-9ac0cc00593d", width: dims, height: dims,
   init_generation_image_id: img2img,
+  tiling: tileSet,                      
   promptMagic: magicSet,
   scheduler: "LEONARDO", num_inference_steps: 30, sd_version: 'v2'})
 };
