@@ -172,8 +172,9 @@ apiKey='eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjNkMjMzOTQ5In0.eyJzdWIiOiJk
   raw=arr[1].slice(1)
   console.dir('response1= '+data)
   console.log(data)
-  raw2=raw.slice(0,-2) 
-  alert('obj = '+data.image_0[-200])
+  raw2=raw.slice(0,-2)
+  raw3=data.image_0
+  alert('ob = '+raw3[-100])
  // raw2=data.image_0
  
 var base64 = "data:image/png;base64,"+raw2
