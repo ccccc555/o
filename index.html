@@ -117,11 +117,6 @@
     var ct1 = c1.getContext("2d")
     
     var img =new Image()
-    
-   // img.onload = function(){ct1.drawImage(img,0,0,size,size)}
-    
-    //img.src="ii.png"
-    
     var dims
     
     var screenw=window.innerWidth, screenh=window.innerHeight
@@ -133,9 +128,9 @@
     urlElem.value="Type prompt then GetImage"
 // When the image is loaded, create a canvas and draw the image on it
 img.onload = function() {
- //   canvas.width = this.naturalWidth; // or 'width' if you want a special size
-   // canvas.height = this.naturalHeight; // or 'height' if you want a special size
-    ct1.drawImage(this, 0, 0);
+  c1.width = this.naturalWidth; 
+  c1.height = this.naturalHeight; // or 'height'
+  ct1.drawImage(this, 0, 0);
 };
 
     /*
@@ -146,13 +141,9 @@ if(retURL.length>10){
 */
 
 
-
 function clearWins(){
 ct1.clearRect(0,0,size,size)
 }
- 
-
-
 
   urlButton.addEventListener("click", octo)
     
@@ -182,7 +173,7 @@ apiKey='eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjNkMjMzOTQ5In0.eyJzdWIiOiJk
   strn=JSON.stringify(data)
   arr=strn.split(':')
   raw=arr[1].slice(1)
-  alert('raw data= '+raw.slice(-200))
+  console.log('response= '+data)
   raw2=raw.slice(0,-2)
  
 var base64 = "data:image/png;base64,"+raw2
