@@ -182,9 +182,10 @@ apiKey='eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjNkMjMzOTQ5In0.eyJzdWIiOiJk
   strn=JSON.stringify(data)
   arr=strn.split(':')
   raw=arr[1].slice(1)
-  alert('raw data= '+raw.slice(-100))
+  alert('raw data= '+raw.slice(-200))
+  raw2=raw.slice(0,-2)
  
-var base64 = "data:image/png;base64,"+raw
+var base64 = "data:image/png;base64,"+raw2
 
 img.src = base64;
 
