@@ -80,7 +80,7 @@
           <select name="wid" id="wid">
             <option value="512">512</option>
             <option value="768">768</option>  
-            <option value="1024">1024</option>
+
           </select>
       </div>
 
@@ -89,8 +89,7 @@
         <label for="hei">Height</label>
           <select name="hei" id="hei">
             <option value="512">512</option>
-            <option value="768">768</option>  
-            <option value="1024">1024</option>
+            
           </select>
       </div>
       
@@ -128,15 +127,13 @@
     var ct1 = c1.getContext("2d")
     
     var img =new Image()
-    var dims
     
     var screenw=window.innerWidth, screenh=window.innerHeight
     var size=Math.floor(.184*screenw)
     
     c1.width=size; c1.height=size
     
-    
-// When the image is loaded, create a canvas and draw the image on it
+    ct1.font='30px Arial'
 img.onload = function() {
   c1.width = this.naturalWidth; 
   c1.height = this.naturalHeight; // or 'height'
