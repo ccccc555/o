@@ -118,9 +118,9 @@
     
     var img =new Image()
     
-    img.onload = function(){ct1.drawImage(img,0,0,size,size)}
+   // img.onload = function(){ct1.drawImage(img,0,0,size,size)}
     
-    img.src="ii.png"
+    //img.src="ii.png"
     
     var dims
     
@@ -131,7 +131,12 @@
     
     var urlElem=document.getElementById('urltext')
     urlElem.value="Type prompt then GetImage"
-
+// When the image is loaded, create a canvas and draw the image on it
+img.onload = function() {
+ //   canvas.width = this.naturalWidth; // or 'width' if you want a special size
+   // canvas.height = this.naturalHeight; // or 'height' if you want a special size
+    ct1.drawImage(this, 0, 0);
+};
 
     /*
 c1.addEventListener("click", function() {
@@ -188,7 +193,11 @@ apiKey='eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjNkMjMzOTQ5In0.eyJzdWIiOiJk
   arr=strn.split(':')
   raw=arr[1].slice(1)
   alert('raw len '+raw.length)
- alert('octo data returned '+raw)
+ 
+let base64 = "data:image/png;base64,"+raw
+
+img.src = base64;
+
     //displayBase64ImageOnCanvas(data[1], 'Canvas1');
 }
       )
