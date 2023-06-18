@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-     <title>IdeaIgniter</title>
+     <title>Octo</title>
      <link rel="icon" type="image/png" href="iifavicon.png"/>
     
     <style>
@@ -43,16 +43,6 @@
         margin: 1rem;
       }
 
-      .donation-button {
-        background-color: black;
-        color: #FFD700;
-        font-weight: bold;
-        padding: 8px 4px;
-        border-radius: 5px;
-        border: 1px solid #DC143C;
-        margin: 1rem 0 2rem 0;
-        font-size: 1rem;
-      }
 
       .container {
         display: flex;
@@ -86,96 +76,6 @@
     
    
     <div class="checkbox-container">
-      <div class="checkbox">
-        <input type="checkbox" id="start_prompt">
-        <label for="start_prompt">Start Prompt</label>
-      </div>
-      <div class="checkbox">
-        <input type="checkbox" id="prompts">
-        <label for="prompts">Prompts</label>
-      </div>
-      <div class="checkbox">
-        <input type="checkbox" id="objects">
-        <label for="objects">Objects</label>
-      </div>
-      <div class="checkbox">
-        <input type="checkbox" id="animals">
-        <label for="animals">Animals</label>
-      </div>
-      <div class="checkbox">
-        <input type="checkbox" id="environment">
-        <label for="environment">Environment</label>
-      </div>
-      <div class="checkbox">
-        <input type="checkbox" id="heroes" name="heroes" value="heroes">
-        <label for="heroes">Hero List</label>
-      </div>
-      <div class="checkbox">
-        <input type="checkbox" id="animeCharacters" name="animeCharacters">
-        <label for="animeCharacters">Anime Character</label>  
-      </div>   
-      <div class="checkbox">
-        <input type="checkbox" id="anime" name="anime">
-        <label for="anime">Anime</label>
-      </div>
-      <div class="checkbox">
-        <input type="checkbox" id="actors" name="actors">
-        <label for="actors">Actor</label>
-      </div>
-      <div class="checkbox">
-        <input type="checkbox" id="movies" name="movies">
-        <label for="movies">Movie</label>
-      </div>
-      <div class="checkbox">
-        <input type="checkbox" id="comics" name="comics">
-        <label for="comics">Comic</label>
-      </div>
-      <div class="checkbox">
-        <input type="checkbox" id="comicStyles" name="comicStyles">
-        <label for="comicStyles">Comic Style</label>
-      </div>
-      <div class="checkbox">
-        <input type="checkbox" id="photo_effects">
-        <label for="photo_effects">Photo Effects</label>
-      </div>
-      <div class="checkbox">
-        <input type="checkbox" id="render_type">
-        <label for="render_type">Render Type</label>
-      </div>
-      <div class="checkbox">
-        <input type="checkbox" id="art_style">
-        <label for="art_style">Art Styles</label>
-      </div>
-      <div class="checkbox">
-        <input type="checkbox" id="quality_modifiers">
-        <label for="quality_modifiers">Quality Modifiers</label>
-      </div>
-      <div class="checkbox">
-        <input type="checkbox" id="artists">
-        <label for="artists">Artists</label>
-      </div>
-      
-      <div class="checkbox">
-        <input type="checkbox" id="colors">
-        <label for="colors">Colors</label>
-      </div>
-      <div class="checkbox">
-        <input type="checkbox" id="seed">
-        <label for="seed">Seed</label>
-     </div>
-       <div class="checkbox">
-        <input type="checkbox" id="chaos">
-        <label for="chaos">Chaos</label>
-      </div>
-      <div class="checkbox">
-        <input type="checkbox" id="Aspect Ratio">
-        <label for="Aspect Ratio">Aspect Ratio</label>
-        <select name="Aspect Ratio" id="asp">
-          <option value="1:1">1:1</option>
-          <option value="16:9">16:9</option>  
-          <option value="2:1">2:1</option>
-        </select>
-      </div>
 
       <div class="checkbox">
         <label for="abc">Size</label>
@@ -209,8 +109,7 @@
     
     const urlButton = document.getElementById("url-button");
     const promptDiv = document.getElementById("prompt");
-    generateButton.style.font = "4vw Montserrat"
-    copyButton.style.font = "4vw Montserrat"
+    
     urlButton.style.font = "4vw Montserrat"
     var promp="",retURL=""
 
@@ -269,8 +168,8 @@ ct1.clearRect(0,0,size,size)
 
 
   urlButton.addEventListener("click", function() {
-   // leonardo()
-     promptDiv.innerHTML = promp
+   
+    prom= promptDiv.innerHTML
      alert('Get Octo Image')
   });
     
