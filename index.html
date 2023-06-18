@@ -124,9 +124,6 @@
     
     var dims
     
- //   var leoApiK=['693a5c60','f266','4bf7','934f','3db55cd5c5f6']
-  //  var leoApiKey=leoApiK.join('-')
-    
     var screenw=window.innerWidth, screenh=window.innerHeight
     var size=Math.floor(.184*screenw)
     
@@ -148,22 +145,7 @@ if(retURL.length>10){
 function clearWins(){
 ct1.clearRect(0,0,size,size)
 }
- /*
- fetch('https://cloud.leonardo.ai/api/rest/v1/generations', option1)
-  .then(response => response.json())
-  .then(data => {leo=data.sdGenerationJob.generationId
-                urlElem.value="SeriesID "+leo
-                leoTimer()})
-  .catch(err => {alert('APIerror check key')
-                 leoTime=0
-                 clearWins()
-                 urlElem.value=""
-                 }
-                 );
-                 
-} */
-
-    
+ 
 
 
 
@@ -202,7 +184,7 @@ apiKey='eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjNkMjMzOTQ5In0.eyJzdWIiOiJk
 })
 .then(response => response.json())
 .then(data => {
- alert('octo data returned'+data)
+ alert('octo data returned '+JSON.stringify(data) )
 })
 
 .catch(error => alert('err='+error));
