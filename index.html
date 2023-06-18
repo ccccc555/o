@@ -130,21 +130,13 @@ img.onload = function() {
   ct1.drawImage(this, 0, 0);
 };
 
-    /*
-c1.addEventListener("click", function() {
-if(retURL.length>10){
-  win = window.open(retURL, '_blank');   win.focus(); }
-})
-*/
-
-
-function clearWins(){
-ct1.clearRect(0,0,size,size)
-}
+    
 
   urlButton.addEventListener("click", octo)
     
   function octo(){
+    ct1.fillStyle='yellow'
+  ct1.fillRect(20,20,90,90)
     promp= promptDiv.innerHTML
    //  alert('Fetching Image '+promp)  
 apiKey='eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjNkMjMzOTQ5In0.eyJzdWIiOiJkN2YyODU3MC01MzAzLTQ2YjUtOWY5Zi03ZDYyOTdjYWUzYzkiLCJ0eXBlIjoidXNlckFjY2Vzc1Rva2VuIiwidGVuYW50SWQiOiI3ZmNhNjNjZC0yY2E1LTRjOGQtYWIzZC1jYjVkNDk3ZWZjODgiLCJ1c2VySWQiOiJmM2MyYWRiNC01Y2ZmLTRhMjgtOWJlYy02NGMyMzYyMjBhYjgiLCJyb2xlcyI6WyJGRVRDSC1ST0xFUy1CWS1BUEkiXSwicGVybWlzc2lvbnMiOlsiRkVUQ0gtUEVSTUlTU0lPTlMtQlktQVBJIl0sImF1ZCI6IjNkMjMzOTQ5LWEyZmItNGFiMC1iN2VjLTQ2ZjYyNTVjNTEwZSIsImlzcyI6Imh0dHBzOi8vaWRlbnRpdHkub2N0b21sLmFpIiwiaWF0IjoxNjg3MDQ3NTc1fQ.TDZe63vnwJsrHMx-Tn4mM8xhO2uL_k5WiKTKcFfW1tDdDBHPexvwXVCVn7UnL7V2rfX_mszi0jro9fKMTFmQARnl6Z-_-gQWCr8zHzFlR6JWKx2ohPhzmQJmWpK3Pl21eQNl7VTF3K552x4T2i1FzN6nI-TgjFSYTZtZwHGiXyDb-ttoR-EWqH0LHHuF7cUTbWJecxcIRm1_OShsL0bFqXtT54GfHPB0tgwMP_7y3lqVjnSe9w-sHW-4iQJRUk3xTP5qa2p8V-rgRhA01tGQEYFVg7yK7zC35VlL1TZqK1TgEiOjiVkTi1w8Iy1nMe2Tob4saxddwZDFDSf75FPxeA' 
@@ -165,8 +157,6 @@ apiKey='eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjNkMjMzOTQ5In0.eyJzdWIiOiJk
 .then(response => response.json())
 .then( data=> {
   raw1=data.image_0
-  ct1.fillStyle='yellow'
-  ct1.fillRect(20,20,90,90)
  var base64 = "data:image/png;base64,"+raw1
  img.src = base64
 }
