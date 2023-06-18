@@ -183,10 +183,12 @@ apiKey='eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjNkMjMzOTQ5In0.eyJzdWIiOiJk
   })
 })
 .then(response => response.json())
-.then(data => {
-  alert('length='+data.length)
-  alert('data0 '+data[0])
- alert('octo data returned '+JSON.stringify(data))
+.then( data=> {
+  strn=JSON.stringify(data)
+  arr=strn.split(':')
+  raw=arr[1].slice(1)
+  alert('raw len '+raw.length)
+ alert('octo data returned '+raw)
     //displayBase64ImageOnCanvas(data[1], 'Canvas1');
 }
       )
