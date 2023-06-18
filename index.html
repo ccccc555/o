@@ -167,15 +167,17 @@ apiKey='eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjNkMjMzOTQ5In0.eyJzdWIiOiJk
 })
 .then(response => response.json())
 .then( data=> {
+  raw3=data.image_0
+  /*
   strn=JSON.stringify(data)
   arr=strn.split(':')
   raw=arr[1].slice(1)
   console.dir('response1= '+data)
   console.log(data)
   raw2=raw.slice(0,-2)
-  raw3=data.image_0
   alert(raw2.length+' v '+raw3.length)
- // raw2=data.image_0
+  */
+  raw2=JSON.stringify(raw3)
  
 var base64 = "data:image/png;base64,"+raw2
 
