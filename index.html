@@ -92,7 +92,15 @@
             
           </select>
       </div>
-      
+
+      <div class="checkbox">
+        <label for="stepc">Step Count</label>
+          <select name="stepc" id="stepc">
+            <option value="30">30</option>
+            <option value="60">60</option>  
+
+          </select>
+      </div>
       <div class="checkbox">
         <label for="API">API</label>
         <select name="api" id="api">
@@ -122,7 +130,7 @@
     const widt= document.getElementById("wid")
     const heig= document.getElementById("hei")
     const ap= document.getElementById("api")
-    
+    const stc= document.getElementById("stepc")
     urlButton.style.font = "4vw Montserrat"
     var promp="",retURL=""
 
@@ -167,7 +175,7 @@ apiKey='eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjNkMjMzOTQ5In0.eyJzdWIiOiJk
     'width' : widt.value,
     'height' : heig.value,
     'guidance_scale': 7.5,
-    'num_inference_steps': 30,
+    'num_inference_steps': stc.value,
     'sheduler': 'DPMSolverMultistep'
   })
 })
