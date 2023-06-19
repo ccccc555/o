@@ -96,9 +96,9 @@
       <div class="checkbox">
         <label for="API">API</label>
         <select name="api" id="api">
-          <option value="SD">Octo SD</option> 
-          <option value="Deliberate">Deliberate</option> 
-          <option value="Dreamshaper">Dreamshaper</option> 
+          <option value="openjourney">openjourney</option> 
+          <option value="deliberate">deliberate</option> 
+          <option value="dreamshaper">dreamshaper</option> 
         </select>
       </div>
 
@@ -120,6 +120,7 @@
     const promptDiv = document.getElementById("prompt");
     const widt= document.getElementById("wid")
     const heig= document.getElementById("hei")
+    const ap= document.getElementById("api")
     
     urlButton.style.font = "4vw Montserrat"
     var promp="",retURL=""
@@ -161,6 +162,7 @@ apiKey='eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjNkMjMzOTQ5In0.eyJzdWIiOiJk
   },
   body: JSON.stringify({
     'prompt': promp,
+    'model' : ap,
     'width' : widt.value,
     'height' : heig.value,
     'guidance_scale': 7.5,
